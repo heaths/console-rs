@@ -1,0 +1,10 @@
+[package]
+name = "console"
+version = "0.1.0"
+repository = "https://github.com/heaths/console-rs"
+license = "MIT"
+edition = "2021"
+rust-version = "1.70.0"
+publish = false
+
+[dependencies]

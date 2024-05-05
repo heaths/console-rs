@@ -1,0 +1,12 @@
+root = true
+
+[*]
+indent_size = 4
+indent_style = space
+trim_trailing_whitespace = true
+insert_final_newline = true
+file_header_template = Copyright 2024 Heath Stewart.\nLicensed under the MIT License. See LICENSE.txt in the project root for license information.
+
+[*{.json, .yml}]
+indent_size = 2
+indent_style = space
