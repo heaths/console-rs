@@ -34,7 +34,7 @@ extern "C" {
     fn SetConsoleMode(hConsoleHandle: HANDLE, dwMode: DWORD) -> BOOL;
 }
 
-pub fn enable_virtual_terminal_processing<T>(fd: T) -> crate::Result<()>
+pub fn enable_virtual_terminal_processing<T>(fd: &T) -> crate::Result<()>
 where
     T: IsTerminal + AsRawHandle,
 {

@@ -13,7 +13,7 @@ pub use error::*;
 use std::io::IsTerminal;
 
 #[cfg(not(windows))]
-pub fn enable_ansi_escape_sequences<T>(fd: T) -> Result<()>
+pub fn enable_ansi_escape_sequences<T>(_: T) -> Result<()>
 where
     T: IsTerminal,
 {
@@ -25,7 +25,7 @@ pub fn enable_ansi_escape_sequences<T>(fd: T) -> Result<()>
 where
     T: IsTerminal + std::os::windows::io::AsRawHandle,
 {
-    windows::enable_virtual_terminal_processing(fd)
+    windows::enable_virtual_terminal_processing(&fd)
 }
 
 #[cfg(test)]
