@@ -6,12 +6,14 @@ use std::{
     ops::{Deref, DerefMut},
 };
 
+#[allow(dead_code)]
 #[derive(Debug, Default)]
 pub struct Buffer<'a> {
     buffer: Either<'a, Vec<u8>>,
     tty: bool,
 }
 
+#[allow(dead_code)]
 impl<'a> Buffer<'a> {
     pub fn from<T>(buffer: Option<&'a mut T>, tty: bool) -> Self
     where

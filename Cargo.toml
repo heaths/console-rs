@@ -6,5 +6,25 @@ license = "MIT"
 edition = "2021"
 rust-version = "1.70.0"
 publish = false
+exclude = [
+    "/.devcontainer",
+    "/.github",
+    "/.vscode",
+    "/.editorconfig",
+]
+
+[features]
+default = [
+    "console",
+]
+console = []
+
+[[example]]
+name = "fake_console"
+required-features = ["console"]
+
+[[example]]
+name = "system_console"
+required-features = ["console"]
 
 [dependencies]
