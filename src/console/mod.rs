@@ -27,15 +27,15 @@ impl<'a> Console<'a> {
 
         #[cfg(windows)]
         {
-            windows::enable_virtual_terminal_processing(stdout)?;
-            windows::enable_virtual_terminal_processing(stderr)?;
+            windows::enable_virtual_terminal_processing(&stdout)?;
+            windows::enable_virtual_terminal_processing(&stderr)?;
         }
 
         Ok(Self {
             buffers: Buffers::System {
                 stdin: io::stdin(),
-                stdout: io::stdout(),
-                stderr: io::stderr(),
+                stdout,
+                stderr,
             },
         })
     }
@@ -83,15 +83,15 @@ impl<'a> Default for Console<'a> {
         #[cfg(windows)]
         {
             // Attempt to enable virtual processing but do not panic otherwise.
-            let _ = windows::enable_virtual_terminal_processing(stdout);
-            let _ = windows::enable_virtual_terminal_processing(stderr);
+            let _ = windows::enable_virtual_terminal_processing(&stdout);
+            let _ = windows::enable_virtual_terminal_processing(&stderr);
         }
 
         Self {
             buffers: Buffers::System {
                 stdin: io::stdin(),
-                stdout: io::stdout(),
-                stderr: io::stderr(),
+                stdout,
+                stderr,
             },
         }
     }
